@@ -53,8 +53,8 @@ END
 //
 
 VS_VERSION_INFO VERSIONINFO
- FILEVERSION 1,2,0,43
- PRODUCTVERSION 1,2,0,43
+ FILEVERSION 1,2,1,43
+ PRODUCTVERSION 1,2,1,43
  FILEFLAGSMASK 0x17L
 #ifdef _DEBUG
  FILEFLAGS 0x1L
@@ -72,9 +72,9 @@ BEGIN
             VALUE "Comments", "ProjectHome: http://code.google.com/p/win32cmdx/"
             VALUE "CompanyName", "New BSD License"
             VALUE "FileDescription", "dump zipfile format(PKZIP-APPNOTE 6.3.2)."
-            VALUE "FileVersion", "1, 2, 0, 43"
+            VALUE "FileVersion", "1, 2, 1, 43"
             VALUE "InternalName", "zipdump"
-            VALUE "LegalCopyright", "Copyright (C) 2010"
+            VALUE "LegalCopyright", "Copyright (C) 2010,2018"
             VALUE "OriginalFilename", "zipdump.exe"
             VALUE "ProductName", "zipdump"
             VALUE "ProductVersion", "1, 2, 0, 43"

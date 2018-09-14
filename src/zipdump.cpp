@@ -51,7 +51,7 @@ const char* gUsage  = "usage :zipdump [-h?fqosr] [-d<DIR>] file1.zip file2.zip .
 
 /** detail help-message for options and version */
 const char* gUsage2 =
-	"  version 1.2 (r43)\n"
+	"  version 1.2.1 (r43)\n"
 	"  -h -?      this help\n"
 	"  -f         full dump\n"
 	"  -q         quiet mode\n"
@@ -891,7 +891,7 @@ void Dump_extra_NTFS(FILE* fin, FILE* fout, size_t length)
 	size_t extra_offset = 0;
 
 	DUMP4("reserved", w32, x); extra_offset += 4;
-	while (Read16(fin, tag) && Read16(fin, size)) {
+	while (extra_offset < length && Read16(fin, tag) && Read16(fin, size)) {
 		size_t tag_offset = 0;
 		switch (tag) {
 		case 1:
@@ -910,7 +910,7 @@ void Dump_extra_NTFS(FILE* fin, FILE* fout, size_t length)
 		if (size > tag_offset) {
 			SkipUnknownData(fin, fout, size - tag_offset);
 		}
-		extra_offset += size;
+		extra_offset += 4 + size;
 	}//.endwhile
 
 	if (length > extra_offset) {
@@ -1760,7 +1760,7 @@ next_arg:
 //------------------------------------------------------------------------
 /**@page zipdump-manual zipdump.exe - dump zip file structure
 
-@version 1.2 (r43)
+@version 1.2.1 (r43)
 
 @author Hiroshi Kuno <http://code.google.com/p/win32cmdx/>
 
